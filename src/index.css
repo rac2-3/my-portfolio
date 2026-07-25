@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#1c1c22] text-white overflow-x-hidden;
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Outfit", sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #141418;
+}
+::-webkit-scrollbar-thumb {
+  background: #00ff99;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00e68a;
+}
+
+/* Custom Utilities */
+.text-outline {
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+.text-outline-hover:hover {
+  -webkit-text-stroke: 1px #00ff99;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: all 0.3s ease-in-out;
+}
+.glass-card-hover:hover {
+  border-color: rgba(0, 255, 153, 0.4);
+  box-shadow: 0 0 25px rgba(0, 255, 153, 0.15);
+  transform: translateY(-2px);
+}
+
+/* SVG Circle Animation */
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
