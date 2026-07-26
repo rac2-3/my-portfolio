@@ -43,10 +43,13 @@ const Hero = () => {
             {/* Buttons & Socials */}
             <div className="flex flex-col sm:flex-row items-center gap-8 justify-center xl:justify-start">
               <a
-                href="#contact"
+                href={personal.cvUrl}
+                download="Raj_Tilak_Singh_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full text-base font-semibold transition-all duration-500 border border-accent text-accent hover:bg-accent hover:text-primary h-[56px] px-8 tracking-wider uppercase group hover:shadow-[0_0_20px_rgba(0,255,153,0.4)]"
               >
-                <span>Get In Touch</span>
+                <span>Download CV</span>
                 <Download size={20} className="transition-transform group-hover:translate-y-0.5" />
               </a>
 

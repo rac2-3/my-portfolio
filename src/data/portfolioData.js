@@ -3,7 +3,7 @@ export const portfolioData = {
     name: "Raj Tilak Singh",
     role: "MCA AI/ML Student",
     bio: "I build intelligent AI-powered applications using Machine Learning, Deep Learning and Full Stack technologies. Passionate about solving real-world problems through clean, scalable and innovative solutions.",
-    cvUrl: "#contact",
+    cvUrl: "/Raj_Tilak_Singh_CV.pdf",
     socials: [
       {
         name: "GitHub",
