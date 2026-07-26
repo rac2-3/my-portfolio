@@ -71,14 +71,14 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Animated Profile Photo Circle Visual */}
+          {/* Profile Photo with Animated SVG Accent Ring */}
           <div className="order-1 xl:order-none mb-4 xl:mb-0">
             <div className="w-full h-full relative flex items-center justify-center">
-              <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] xl:w-[400px] xl:h-[400px]">
+              <div className="relative w-[298px] h-[298px] sm:w-[340px] sm:h-[340px] xl:w-[420px] xl:h-[420px]">
                 
-                {/* SVG Rotating Dashed Accent Ring */}
+                {/* SVG Rotating Dashed Accent Ring (Bhavya Style) */}
                 <svg
-                  className="w-full h-full absolute top-0 left-0 animate-spin-slow pointer-events-none"
+                  className="w-full h-full absolute top-0 left-0 animate-spin-slow pointer-events-none z-10"
                   viewBox="0 0 506 506"
                   fill="transparent"
                   xmlns="http://www.w3.org/2000/svg"
@@ -91,27 +91,19 @@ const Hero = () => {
                     strokeWidth="4"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeDasharray="24 12 12 12"
+                    strokeDasharray="24 10 0 0"
                   />
                 </svg>
 
-                {/* Inner Avatar Graphic */}
-                <div className="w-full h-full rounded-full p-4 flex items-center justify-center">
-                  <div className="w-full h-full rounded-full bg-gradient-to-b from-[#141418] to-[#1c1c22] border-2 border-accent/30 flex flex-col items-center justify-center overflow-hidden shadow-2xl relative group">
-                    
-                    {/* Visual Graphic Representation */}
-                    <div className="absolute inset-0 bg-accent/5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                    
-                    <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-accent/10 border-2 border-accent flex items-center justify-center mb-3 shadow-[0_0_30px_rgba(0,255,153,0.2)]">
-                      <span className="text-4xl sm:text-5xl font-extrabold text-accent">
-                        RTS
-                      </span>
-                    </div>
-
-                    <span className="text-sm font-semibold tracking-widest text-accent uppercase">
-                      AI / ML & Full Stack
-                    </span>
-                    <span className="text-xs text-white/60">Developer</span>
+                {/* Profile Photo Container */}
+                <div className="w-full h-full rounded-full p-4 flex items-center justify-center relative">
+                  <div className="w-full h-full rounded-full overflow-hidden border-2 border-accent/40 shadow-[0_0_40px_rgba(0,255,153,0.25)] relative group bg-[#141418]">
+                    <img
+                      src="/raj.png"
+                      alt="Raj Tilak Singh"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-30 group-hover:opacity-10 transition-opacity" />
                   </div>
                 </div>
 
