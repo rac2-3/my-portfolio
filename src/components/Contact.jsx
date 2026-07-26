@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { portfolioData } from "../data/portfolioData";
-import { Phone, Mail, MapPin, Send, Check, Copy } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Check, Copy, Loader2 } from "lucide-react";
 
 const Contact = () => {
   const { contact } = portfolioData;
@@ -11,6 +11,7 @@ const Contact = () => {
     subject: "Full Stack / AI ML Opportunity",
     message: ""
   });
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [copiedField, setCopiedField] = useState("");
 
@@ -18,13 +19,43 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", subject: "Full Stack / AI ML Opportunity", message: "" });
-    }, 4000);
+    setLoading(true);
+
+    try {
+      // Send directly to Raj Tilak Singh's Gmail (rajtilak.msb@gmail.com)
+      const response = await fetch("https://formsubmit.co/ajax/rajtilak.msb@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: `Portfolio Message from ${formData.name}: ${formData.subject}`,
+          Name: formData.name,
+          Email: formData.email,
+          Phone: formData.phone || "Not provided",
+          Subject: formData.subject,
+          Message: formData.message,
+        })
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", subject: "Full Stack / AI ML Opportunity", message: "" });
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        // Fallback fallback direct mail launch
+        window.open(`mailto:rajtilak.msb@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`)}`, '_blank');
+        setSubmitted(true);
+      }
+    } catch (error) {
+      window.open(`mailto:rajtilak.msb@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`)}`, '_blank');
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const copyToClipboard = (text, fieldName) => {
@@ -53,7 +84,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto">
           
-          {/* Contact Details Cards (4 columns on lg) */}
+          {/* Contact Details Cards */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             
             {/* Phone Card */}
@@ -86,9 +117,14 @@ const Contact = () => {
                 </div>
                 <div>
                   <span className="text-xs text-white/50 block">Email</span>
-                  <span className="text-base font-bold text-white group-hover:text-accent transition-colors">
+                  <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=rajtilak.msb@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base font-bold text-white group-hover:text-accent transition-colors block"
+                  >
                     {contact.email}
-                  </span>
+                  </a>
                 </div>
               </div>
               <button
@@ -124,7 +160,7 @@ const Contact = () => {
 
           </div>
 
-          {/* Contact Form (7 columns on lg) */}
+          {/* Contact Form */}
           <div className="lg:col-span-7">
             <div className="glass-card p-8 rounded-3xl border border-white/10">
               <h3 className="text-2xl font-bold text-white mb-6">
@@ -136,8 +172,8 @@ const Contact = () => {
                   <div className="w-12 h-12 rounded-full bg-accent text-primary flex items-center justify-center mx-auto mb-3 font-bold">
                     ?
                   </div>
-                  <h4 className="text-xl font-bold text-accent mb-2">Message Sent Successfully!</h4>
-                  <p className="text-sm text-white/80">Thank you for reaching out, Raj Tilak Singh will get back to you shortly.</p>
+                  <h4 className="text-xl font-bold text-accent mb-2">Message Sent to Raj Tilak Singh!</h4>
+                  <p className="text-sm text-white/80">Your message has been sent directly to <strong>rajtilak.msb@gmail.com</strong>. I will get back to you shortly.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -196,10 +232,20 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-accent text-primary font-bold text-base flex items-center justify-center gap-2 hover:bg-accent-hover hover:shadow-[0_0_25px_rgba(0,255,153,0.4)] transition-all duration-300 mt-2"
+                    disabled={loading}
+                    className="w-full py-4 rounded-xl bg-accent text-primary font-bold text-base flex items-center justify-center gap-2 hover:bg-accent-hover hover:shadow-[0_0_25px_rgba(0,255,153,0.4)] transition-all duration-300 mt-2 disabled:opacity-50"
                   >
-                    <span>Send Message</span>
-                    <Send size={18} />
+                    {loading ? (
+                      <>
+                        <Loader2 size={18} className="animate-spin" />
+                        <span>Sending Message...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Send Message</span>
+                        <Send size={18} />
+                      </>
+                    )}
                   </button>
                 </form>
               )}

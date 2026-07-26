@@ -22,7 +22,7 @@ export const portfolioData = {
       },
       {
         name: "Email",
-        url: "mailto:rajtilak.msb@gmail.com",
+        url: "https://mail.google.com/mail/?view=cm&fs=1&to=rajtilak.msb@gmail.com",
         icon: "Mail"
       }
     ]

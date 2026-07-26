@@ -1,6 +1,6 @@
 import React from "react";
 import { portfolioData } from "../data/portfolioData";
-import { Github, Linkedin, Code2, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Code2, Mail } from "lucide-react";
 
 const Footer = () => {
   const { personal } = portfolioData;
@@ -49,7 +49,9 @@ const Footer = () => {
             <Code2 size={18} />
           </a>
           <a
-            href="mailto:rajtilak.msb@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=rajtilak.msb@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-accent hover:border-accent transition-all"
             title="Email"
           >
