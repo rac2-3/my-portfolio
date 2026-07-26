@@ -1,5 +1,6 @@
 import React from "react";
 import { Download, Github, Linkedin, Code2, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 import { portfolioData } from "../data/portfolioData";
 
 const Hero = () => {
@@ -27,7 +28,7 @@ const Hero = () => {
           
           {/* Text Content */}
           <div className="text-center xl:text-left order-2 xl:order-none max-w-[650px]">
-            <span className="text-lg xl:text-xl font-medium tracking-wider text-white/80 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full inline-block mb-4 border-accent/20">
+            <span className="text-xl block mb-2 text-white/90 font-medium">
               {personal.role}
             </span>
             
@@ -36,7 +37,7 @@ const Hero = () => {
               <span className="text-accent">{personal.name}</span>
             </h1>
             
-            <p className="max-w-[540px] mb-9 text-white/80 text-base sm:text-lg leading-relaxed">
+            <p className="max-w-[500px] mb-9 text-white/80 text-base sm:text-lg leading-relaxed">
               {personal.bio}
             </p>
 
@@ -47,14 +48,14 @@ const Hero = () => {
                 download="Raj_Tilak_Singh_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full text-base font-semibold transition-all duration-500 border border-accent text-accent hover:bg-accent hover:text-primary h-[56px] px-8 tracking-wider uppercase group hover:shadow-[0_0_20px_rgba(0,255,153,0.4)]"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-base font-semibold transition-all duration-500 border border-accent text-accent hover:bg-accent hover:text-primary h-[56px] px-8 tracking-[2px] uppercase group hover:shadow-[0_0_20px_rgba(0,255,153,0.4)]"
               >
                 <span>Download CV</span>
                 <Download size={20} className="transition-transform group-hover:translate-y-0.5" />
               </a>
 
               {/* Social Icons */}
-              <div className="flex gap-4 items-center">
+              <div className="flex gap-6 items-center">
                 {personal.socials.map((social, index) => (
                   <a
                     key={index}
@@ -62,7 +63,7 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     title={social.name}
-                    className="w-11 h-11 border border-accent/40 rounded-full flex justify-center items-center text-accent hover:bg-accent hover:text-primary hover:border-accent transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,153,0.3)] hover:-translate-y-1"
+                    className="w-9 h-9 border border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
                   >
                     {getSocialIcon(social.icon)}
                   </a>
@@ -71,43 +72,57 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Profile Photo with Animated SVG Accent Ring */}
-          <div className="order-1 xl:order-none mb-4 xl:mb-0">
-            <div className="w-full h-full relative flex items-center justify-center">
-              <div className="relative w-[298px] h-[298px] sm:w-[340px] sm:h-[340px] xl:w-[420px] xl:h-[420px]">
-                
-                {/* SVG Rotating Dashed Accent Ring (Bhavya Style) */}
-                <svg
-                  className="w-full h-full absolute top-0 left-0 animate-spin-slow pointer-events-none z-10"
-                  viewBox="0 0 506 506"
-                  fill="transparent"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="253"
-                    cy="253"
-                    r="245"
-                    stroke="#00ff99"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeDasharray="24 10 0 0"
-                  />
-                </svg>
-
-                {/* Profile Photo Container */}
-                <div className="w-full h-full rounded-full p-4 flex items-center justify-center relative">
-                  <div className="w-full h-full rounded-full overflow-hidden border-2 border-accent/40 shadow-[0_0_40px_rgba(0,255,153,0.25)] relative group bg-[#141418]">
+          {/* Profile Photo with Exact Bhavya Framer-Motion Animated Circle */}
+          <div className="order-1 xl:order-none mb-8 xl:mb-0">
+            <div className="w-full h-full relative">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: { delay: 0.2, duration: 0.6, ease: "easeIn" },
+                }}
+              >
+                <div className="w-[298px] h-[298px] xl:w-[350px] xl:h-[350px] relative flex items-center justify-center">
+                  
+                  {/* Cutout Photo Element */}
+                  <div className="w-[298px] h-[298px] xl:w-[350px] xl:h-[350px] mix-blend-lighten absolute top-0 left-0 z-10">
                     <img
-                      src="/raj.png"
+                      src="/photo_cutout.png"
                       alt="Raj Tilak Singh"
-                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      className="object-contain w-full h-full"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-30 group-hover:opacity-10 transition-opacity" />
                   </div>
-                </div>
 
-              </div>
+                  {/* Dynamic Morphing & Rotating Framer-Motion SVG Ring */}
+                  <motion.svg
+                    className="w-[300px] xl:w-[352px] h-[300px] xl:h-[352px]"
+                    fill="transparent"
+                    viewBox="0 0 506 506"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <motion.circle
+                      cx="253"
+                      cy="253"
+                      r="250"
+                      stroke="#00ff99"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      initial={{ strokeDasharray: "24 10 0 0" }}
+                      animate={{
+                        strokeDasharray: ["15 120 25 25", "16 25 92 72", "4 250 22 22"],
+                        rotate: [120, 360],
+                      }}
+                      transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                      }}
+                    />
+                  </motion.svg>
+
+                </div>
+              </motion.div>
             </div>
           </div>
 
