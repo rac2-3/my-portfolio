@@ -1,6 +1,6 @@
 import React from "react";
 import { portfolioData } from "../data/portfolioData";
-import { GraduationCap, MapPin, Calendar, Award, BookOpen } from "lucide-react";
+import { GraduationCap, Calendar, Target, MapPin, Award, BookOpen } from "lucide-react";
 
 const Education = () => {
   const { education } = portfolioData;
@@ -69,7 +69,8 @@ const Education = () => {
 
                   {item.grade && (
                     <div className="flex items-center gap-1.5 font-semibold text-accent bg-accent/10 px-3 py-1 rounded-md border border-accent/20">
-                      <span>?? CGPA: {item.grade}</span>
+                      <Target size={16} className="text-accent" />
+                      <span>CGPA: {item.grade}</span>
                     </div>
                   )}
                 </div>

@@ -13,11 +13,11 @@ const Skills = () => {
     : skills.filter(s => s.category.includes(selectedCategory) || selectedCategory.includes(s.category));
 
   const getCategoryIcon = (category) => {
-    if (category.includes("AI") || category.includes("Intelligence")) return <Brain size={20} className="text-accent" />;
-    if (category.includes("Frontend")) return <Layout size={20} className="text-accent" />;
-    if (category.includes("Backend")) return <Server size={20} className="text-accent" />;
-    if (category.includes("Databases")) return <Database size={20} className="text-accent" />;
-    return <Code size={20} className="text-accent" />;
+    if (category.includes("AI") || category.includes("Intelligence")) return <Brain size={32} className="text-accent" />;
+    if (category.includes("Frontend")) return <Layout size={32} className="text-accent" />;
+    if (category.includes("Backend")) return <Server size={32} className="text-accent" />;
+    if (category.includes("Databases")) return <Database size={32} className="text-accent" />;
+    return <Code size={32} className="text-accent" />;
   };
 
   return (
@@ -55,47 +55,27 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Skills Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Skills Cards Grid - Centered Cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
           {filteredSkills.map((skill, index) => (
             <div
               key={index}
-              className="glass-card glass-card-hover p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden group"
+              className="glass-card glass-card-hover p-8 rounded-2xl flex flex-col items-center justify-center text-center relative overflow-hidden group cursor-pointer border border-white/10 hover:border-accent/40"
             >
               {/* Subtle accent glow on hover */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/20 transition-all duration-500" />
+              <div className="absolute top-0 right-0 w-20 h-20 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/20 transition-all duration-500" />
               
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10 group-hover:border-accent/50 transition-colors">
-                    {getCategoryIcon(skill.category)}
-                  </div>
-                  <span className="text-xs text-accent font-semibold px-2.5 py-1 rounded-full bg-accent/10 border border-accent/20">
-                    {skill.experience}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-semibold mb-1 group-hover:text-accent transition-colors">
-                  {skill.name}
-                </h3>
-                <span className="text-xs text-white/50 block mb-6">
-                  {skill.category}
-                </span>
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:border-accent/50 group-hover:bg-accent/10 transition-all duration-300 mb-4 flex items-center justify-center group-hover:scale-110">
+                {getCategoryIcon(skill.category)}
               </div>
 
-              {/* Progress meter */}
-              <div>
-                <div className="flex justify-between items-center text-xs mb-2 font-medium">
-                  <span className="text-white/70">Proficiency</span>
-                  <span className="text-accent">{skill.level}%</span>
-                </div>
-                <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-accent transition-all duration-1000 rounded-full shadow-[0_0_10px_#00ff99]"
-                    style={{ width: `${skill.level}%` }}
-                  />
-                </div>
-              </div>
+              <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors mb-1">
+                {skill.name}
+              </h3>
+              
+              <span className="text-xs text-white/50 block">
+                {skill.category}
+              </span>
 
             </div>
           ))}

@@ -87,7 +87,7 @@ const Hero = () => {
                   {/* Cutout Photo Element */}
                   <div className="w-[298px] h-[298px] xl:w-[350px] xl:h-[350px] mix-blend-lighten absolute top-0 left-0 z-10">
                     <img
-                      src="/photo_cutout.png"
+                      src="/raj.png"
                       alt="Raj Tilak Singh"
                       className="object-contain w-full h-full"
                     />
