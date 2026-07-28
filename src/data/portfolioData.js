@@ -107,39 +107,12 @@ export const portfolioData = {
   projects: [
     {
       id: 1,
-      title: "AI Medical Imaging & Disease Classifier",
+      title: "AttendAI – AI Powered Smart Attendance System",
       category: "AI/ML",
-      description: "Deep learning model predicting disease indicators from diagnostic scans using Convolutional Neural Networks and FastAPI backend.",
-      techStack: ["Python", "Deep Learning", "React.js", "FastAPI", "MongoDB"],
-      github: "https://github.com/rac2-3",
-      live: "https://github.com/rac2-3"
-    },
-    {
-      id: 2,
-      title: "Smart Placement & Career Portal",
-      category: "Full Stack",
-      description: "Web platform connecting students with prospective employers, featuring automated resume matching and interview scheduler.",
-      techStack: ["React.js", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-      github: "https://github.com/rac2-3",
-      live: "https://github.com/rac2-3"
-    },
-    {
-      id: 3,
-      title: "Stock & Market Predictive Analytics",
-      category: "AI/ML",
-      description: "Financial time-series forecasting web app that analyzes market trends using machine learning algorithms and interactive charts.",
-      techStack: ["Python", "Machine Learning", "MySQL", "React.js"],
-      github: "https://github.com/rac2-3",
-      live: "https://github.com/rac2-3"
-    },
-    {
-      id: 4,
-      title: "Interactive E-Learning Portal",
-      category: "Full Stack",
-      description: "Learning management application featuring progress dashboards, interactive quizzes, and dynamic video modules.",
-      techStack: ["Java", "JavaScript", "React.js", "Node.js", "MySQL"],
-      github: "https://github.com/rac2-3",
-      live: "https://github.com/rac2-3"
+      description: "AI-powered smart attendance tracking system utilizing facial recognition and computer vision algorithms for automated, contact-free attendance logging.",
+      techStack: ["Python", "Machine Learning", "Deep Learning", "React.js", "Tailwind CSS"],
+      github: "https://github.com/rac2-3/attendai-smart-attendance-main",
+      live: "https://attend-ai-landing-page-dun.vercel.app/"
     }
   ],
   contact: {
