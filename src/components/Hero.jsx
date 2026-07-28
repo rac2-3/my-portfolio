@@ -72,7 +72,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Profile Photo with Exact Bhavya Framer-Motion Animated Circle */}
+          {/* Profile Photo with Perfect Circular Mask & Framer-Motion Animated Ring */}
           <div className="order-1 xl:order-none mb-8 xl:mb-0">
             <div className="w-full h-full relative">
               <motion.div
@@ -84,18 +84,18 @@ const Hero = () => {
               >
                 <div className="w-[298px] h-[298px] xl:w-[350px] xl:h-[350px] relative flex items-center justify-center">
                   
-                  {/* Cutout Photo Element */}
-                  <div className="w-[298px] h-[298px] xl:w-[350px] xl:h-[350px] mix-blend-lighten absolute top-0 left-0 z-10">
+                  {/* Photo Container Clipped in Perfect Circle */}
+                  <div className="w-[278px] h-[278px] xl:w-[328px] xl:h-[328px] rounded-full overflow-hidden absolute z-10 flex items-center justify-center">
                     <img
                       src="/raj.png"
                       alt="Raj Tilak Singh"
-                      className="object-contain w-full h-full"
+                      className="object-cover object-top w-full h-full"
                     />
                   </div>
 
                   {/* Dynamic Morphing & Rotating Framer-Motion SVG Ring */}
                   <motion.svg
-                    className="w-[300px] xl:w-[352px] h-[300px] xl:h-[352px]"
+                    className="w-[300px] xl:w-[352px] h-[300px] xl:h-[352px] relative z-20 pointer-events-none"
                     fill="transparent"
                     viewBox="0 0 506 506"
                     xmlns="http://www.w3.org/2000/svg"
