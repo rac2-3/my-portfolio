@@ -107,10 +107,10 @@ export const portfolioData = {
   projects: [
     {
       id: 1,
-      title: "AttendAI – AI Powered Smart Attendance System",
+      title: "AttendAI - AI Powered Smart Attendance System",
       category: "AI/ML",
-      description: "AI-powered smart attendance tracking system utilizing facial recognition and computer vision algorithms for automated, contact-free attendance logging.",
-      techStack: ["Python", "Machine Learning", "Deep Learning", "React.js", "Tailwind CSS"],
+      description: "AI-powered attendance management system that uses Face Recognition and Voice Recognition to automate classroom attendance. Built with Streamlit and Supabase, featuring teacher/student dashboards, secure authentication, and real-time attendance reports.",
+      techStack: ["Python", "Streamlit", "OpenCV", "Supabase", "PostgreSQL", "Scikit-learn"],
       github: "https://github.com/rac2-3/attendai-smart-attendance-main",
       live: "https://attend-ai-landing-page-dun.vercel.app/"
     }
