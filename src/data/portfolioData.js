@@ -113,7 +113,25 @@ export const portfolioData = {
       techStack: ["Python", "Streamlit", "OpenCV", "Supabase", "PostgreSQL", "Scikit-learn"],
       github: "https://github.com/rac2-3/attendai-smart-attendance-main",
       live: "https://attend-ai-landing-page-dun.vercel.app/"
-    }
+    },
+    {
+      id: 2,
+      title: "Weather App",
+      category: "Full Stack",
+      description: "A responsive weather application built with React.js that fetches real-time weather information using the OpenWeather API. Users can search for any city and view temperature, humidity, wind speed, and current weather conditions.",
+      techStack: ["React.js", "JavaScript", "Bootstrap", "Axios", "OpenWeather API"],
+      github: "https://github.com/rac2-3/react-weather-app-main/tree/main",
+      live: "https://react-weather-app-main-alpha.vercel.app/"
+    },
+    {
+      id: 3,
+      title: "Fruit Slice Game",
+      category: "Full Stack",
+      description: "Developed an interactive Fruit Slice Game using HTML5, CSS3, JavaScript, and jQuery. The game features dynamic fruit animations, real-time score tracking, life management, sound effects, and game-over functionality, providing an engaging browser-based gaming experience.",
+      techStack: ["HTML5", "CSS3", "JavaScript", "jQuery"],
+      github: "https://github.com/rac2-3/FruitSlice-Game-jQuery-",
+      live: "https://fruit-slice-game-jquery.vercel.app/"
+    }    
   ],
   contact: {
     phone: "(+91) 8210533569",
